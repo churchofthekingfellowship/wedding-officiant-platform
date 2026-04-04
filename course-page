@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Access | Wedding Officiant Certification</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #e5e7eb;
+      --brand: #7f1d1d;
+      --brand-2: #991b1b;
+      --soft: #fef2f2;
+      --good: #166534;
+      --bad: #991b1b;
+      --warn: #92400e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ffffff, var(--bg));
+      color: var(--text);
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+    .crumb {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .crumb a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-secondary { background: #fff; color: var(--brand); border-color: var(--line); }
+    .btn-disabled { background: #cbd5e1; color: #475569; cursor: not-allowed; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+      padding: 24px;
+      margin-bottom: 22px;
+    }
+    .hero {
+      background: linear-gradient(135deg, #5f1414, #8b1d1d);
+      color: #fff;
+      border: none;
+    }
+    .eyebrow {
+      font-size: 13px;
+      letter-spacing: .06em;
+      font-weight: 700;
+      text-transform: uppercase;
+      opacity: .92;
+    }
+    h1 {
+      font-size: 42px;
+      line-height: 1.08;
+      margin: 12px 0 14px;
+    }
+    h2 {
+      font-size: 30px;
+      margin: 0 0 12px;
+    }
+    h3 {
+      font-size: 22px;
+      margin: 0 0 10px;
+    }
+    p {
+      line-height: 1.8;
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+    .hero p { color: rgba(255,255,255,.96); }
+    .grid { display: grid; gap: 16px; }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .pill {
+      background: rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+    .pill strong { display: block; font-size: 24px; margin-bottom: 4px; }
+    .module {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+      background: #fff;
+    }
+    .meta {
+      color: var(--brand);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+    .assessment {
+      background: var(--soft);
+      border-color: #fecaca;
+    }
+    .success-box {
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+    }
+    .warn-box {
+      background: #fff7ed;
+      border: 1px solid #fdba74;
+    }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px 10px;
+      background: #fff;
+      margin-bottom: 16px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 20px;
+      list-style: none;
+      outline: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    .lesson-block {
+      border-top: 1px solid var(--line);
+      margin-top: 16px;
+      padding-top: 16px;
+    }
+    .quote {
+      border-left: 4px solid var(--brand);
+      padding: 14px 16px;
+      background: #fafafa;
+      border-radius: 0 14px 14px 0;
+      color: var(--text);
+      margin: 14px 0;
+      line-height: 1.8;
+    }
+    .question {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 16px;
+      background: #fff;
+    }
+    .question-title {
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+    .option {
+      display: block;
+      margin-bottom: 10px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .result-box {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 14px;
+      font-weight: 700;
+      display: none;
+    }
+    .result-pass {
+      background: #ecfdf5;
+      color: var(--good);
+      border: 1px solid #bbf7d0;
+    }
+    .result-fail {
+      background: #fef2f2;
+      color: var(--bad);
+      border: 1px solid #fecaca;
+    }
+    .module-status {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .module-status.pass { background: #dcfce7; color: #166534; }
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 26px;
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: 34px; }
+      h2 { font-size: 26px; }
+      .card, details { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="crumb">Back to <a href="index.html">main site</a></div>
+      <div>
+        <a class="btn btn-secondary" href="index.html">Home</a>
+        <a class="btn btn-primary" href="https://buy.stripe.com/6oU9ATfLv0JU5Gy11J7Zu00" target="_blank" rel="noreferrer">Enrol / Buy Access</a>
+      </div>
+    </div>
+
+    <section class="card hero">
+      <div class="eyebrow">Course Access</div>
+      <h1>Christian Wedding Officiant Certification Course</h1>
+      <p>
+        This is the course page students are buying access to. It contains structured teaching,
+        biblical foundations, practical officiant training, module tests, and a locked final certification test.
+      </p>
+      <div class="grid grid-3" style="margin-top: 22px;">
+        <div class="pill"><strong>6 Modules</strong>Structured study path</div>
+        <div class="pill"><strong>Module Tests</strong>Must be passed first</div>
+        <div class="pill"><strong>Final Test</strong>2 attempts only</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Orientation and Requirements</h2>
+      <p>
+        Welcome to the Christian Wedding Officiant Certification Program. This course is built to train students
+        in biblical foundations, ceremony structure, delivery, professionalism, and final assessment. It is designed
+        for those who want to officiate weddings seriously and professionally rather than casually.
+      </p>
+      <div class="grid grid-2" style="margin-top: 14px;">
+        <div class="module">
+          <h3>What students must complete</h3>
+          <ul>
+            <li>Read all six modules in full</li>
+            <li>Pass all six module tests at 80 percent or above</li>
+            <li>Unlock the final certification test only after module completion</li>
+            <li>Pass the final test within two attempts</li>
+            <li>Complete the course honestly</li>
+          </ul>
+        </div>
+        <div class="module">
+          <h3>Integrity Rule</h3>
+          <p>
+            Cheating is not acceptable in this course. Sharing answers, skipping straight to tests, or pretending to understand
+            material that has not been studied undermines the certification and the integrity of ministry work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <details open>
+      <summary>Module 1: Biblical Foundations of Marriage</summary>
+      <div class="lesson-block">
+        <div class="meta">Required Scripture: Genesis 2:18–24 · Matthew 19:4–6 · Ephesians 5:21–33 · 1 Corinthians 13:4–8</div>
+        <p>
+          Before a person can officiate a Christian wedding properly, they must understand what marriage is according to Scripture.
+          Christian marriage is not merely a social event or romantic display. It is a covenant before God. The officiant must know this,
+          because the tone, wording, and seriousness of the ceremony flow directly from that truth.
+        </p>
+        <div class="quote">Marriage in Scripture is presented as covenant, unity, faithfulness, and holy commitment. An officiant who does not understand this will lead a shallow ceremony.</div>
+        <div class="module assessment">
+          <h3>Module 1 Test</h3>
+          <div id="quiz-m1"></div>
+          <button type="button" class="btn btn-primary" onclick="gradeModule('m1')">Submit Module 1 Test</button>
+          <div id="result-m1" class="result-box"></div>
+          <div id="status-m1" class="module-status">Not passed yet</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Module 2: The Calling and Role of the Christian Wedding Officiant</summary>
+      <div class="lesson-block">
+        <div class="meta">Required Scripture: 1 Peter 5:2–3 · Colossians 3:17</div>
+        <p>
+          A Christian wedding officiant is not merely a host or a public speaker. The officiant is a guide, a stabilising presence,
+          and a visible representative of Christian reverence during one of the most important moments in the couple’s life.
+        </p>
+        <div class="module assessment">
+          <h3>Module 2 Test</h3>
+          <div id="quiz-m2"></div>
+          <button type="button" class="btn btn-primary" onclick="gradeModule('m2')">Submit Module 2 Test</button>
+          <div id="result-m2" class="result-box"></div>
+          <div id="status-m2" class="module-status">Not passed yet</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Module 3: Ceremony Structure and Script Writing</summary>
+      <div class="lesson-block">
+        <div class="meta">Required Scripture: Psalm 127:1 · Romans 12:10</div>
+        <p>
+          A good Christian wedding ceremony should feel ordered, reverent, and purposeful. Students learn how to structure a full ceremony,
+          including welcome, exhortation, declaration of intent, vows, ring exchange, pronouncement, and blessing.
+        </p>
+        <div class="module assessment">
+          <h3>Module 3 Test</h3>
+          <div id="quiz-m3"></div>
+          <button type="button" class="btn btn-primary" onclick="gradeModule('m3')">Submit Module 3 Test</button>
+          <div id="result-m3" class="result-box"></div>
+          <div id="status-m3" class="module-status">Not passed yet</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Module 4: Delivering the Ceremony with Confidence</summary>
+      <div class="lesson-block">
+        <div class="meta">Required Scripture: Ecclesiastes 3:7 · Proverbs 15:23</div>
+        <p>
+          This module focuses on spoken delivery. Confidence is not loudness. Confidence is steadiness, controlled pace, clear articulation,
+          and the ability to lead a room without panic.
+        </p>
+        <div class="module assessment">
+          <h3>Module 4 Test</h3>
+          <div id="quiz-m4"></div>
+          <button type="button" class="btn btn-primary" onclick="gradeModule('m4')">Submit Module 4 Test</button>
+          <div id="result-m4" class="result-box"></div>
+          <div id="status-m4" class="module-status">Not passed yet</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Module 5: Legal, Administrative, and Pastoral Responsibilities</summary>
+      <div class="lesson-block">
+        <div class="meta">Required Scripture: Romans 13:1 · 1 Corinthians 14:40</div>
+        <p>
+          The officiant must not only sound good. They must also behave professionally. This includes understanding local legal expectations,
+          communicating clearly with couples, preparing the order of service, and handling the day responsibly.
+        </p>
+        <div class="module assessment">
+          <h3>Module 5 Test</h3>
+          <div id="quiz-m5"></div>
+          <button type="button" class="btn btn-primary" onclick="gradeModule('m5')">Submit Module 5 Test</button>
+          <div id="result-m5" class="result-box"></div>
+          <div id="status-m5" class="module-status">Not passed yet</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Module 6: Final Assessment, Practicum, and Certification</summary>
+      <div class="lesson-block">
+        <div class="meta">Required Scripture: 2 Timothy 2:15 · James 1:22</div>
+        <p>
+          Certification should not be awarded because the student scrolled a page. It should be awarded because the student demonstrated
+          biblical understanding, strong ceremony structure, competent wording, and spoken delivery.
+        </p>
+        <div class="module assessment">
+          <h3>Module 6 Test</h3>
+          <div id="quiz-m6"></div>
+          <button type="button" class="btn btn-primary" onclick="gradeModule('m6')">Submit Module 6 Test</button>
+          <div id="result-m6" class="result-box"></div>
+          <div id="status-m6" class="module-status">Not passed yet</div>
+        </div>
+      </div>
+    </details>
+
+    <section class="card">
+      <h2>Sample Christian Ceremony Script</h2>
+      <div class="quote">
+        Dearly beloved, we are gathered here today in the sight of God and before these witnesses to join this man and this woman in holy matrimony.
+      </div>
+      <p>
+        Today is a day of joy, but it is also a day of solemn commitment. Christian marriage is built on covenant, faithfulness, forgiveness,
+        sacrifice, and love under God. Husband and wife are called to walk together in unity, honour one another, and build a home shaped by grace and truth.
+      </p>
+      <p>
+        By the vows you have made, the promises you have spoken, and the covenant entered before God and these witnesses,
+        it is my honour to pronounce you husband and wife.
+      </p>
+    </section>
+
+    <section class="card" id="final-test-card">
+      <h2>Locked Final Certification Test</h2>
+      <p>
+        The final test unlocks only after all six module tests have been passed at 80 percent or above.
+      </p>
+
+      <div class="module warn-box" style="margin-bottom:16px;">
+        <h3>Final Test Rules</h3>
+        <ul>
+          <li>You must pass every module test first</li>
+          <li>You get only 2 final test attempts</li>
+          <li>Pass mark: 80 percent</li>
+          <li>Cheating is not acceptable</li>
+        </ul>
+      </div>
+
+      <div id="final-lock-message" class="module assessment">
+        <h3>Final Test Locked</h3>
+        <p>Pass all six module tests first. Once all six are passed, the final test will unlock automatically.</p>
+      </div>
+
+      <div id="final-live-area" style="display:none;">
+        <div class="module success-box" style="margin-bottom:16px;">
+          <h3>Final Test Unlocked</h3>
+          <p id="attempt-info">You have 2 attempts available.</p>
+        </div>
+        <form id="final-test"></form>
+        <button id="final-submit-btn" type="button" class="btn btn-primary" onclick="gradeFinalTest()">Submit Final Test</button>
+        <div id="final-result" class="result-box"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Enrolment</h2>
+      <div class="grid grid-2">
+        <div class="module">
+          <div class="meta">Core Offer</div>
+          <h3 style="font-size: 38px; margin-bottom: 6px;">£199</h3>
+          <p>
+            Full Christian Wedding Officiant Certification Program including structured modules, course content,
+            module tests, and a locked final certification test.
+          </p>
+          <a class="btn btn-primary" href="https://buy.stripe.com/6oU9ATfLv0JU5Gy11J7Zu00" target="_blank" rel="noreferrer">Buy Certification Access</a>
+        </div>
+        <div class="module">
+          <h3>What the student gets</h3>
+          <ul>
+            <li>Six structured course modules</li>
+            <li>Required Bible foundations</li>
+            <li>Six module tests</li>
+            <li>Locked final certification test</li>
+            <li>Two final attempts only</li>
+            <li>One-time payment with no subscription</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      Course page live. Module tests gate the final test. Final test gives two attempts only.
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'officiant_course_progress_v2';
+    const FINAL_ATTEMPTS_KEY = 'officiant_final_attempts_v2';
+    const FINAL_LOCKED_KEY = 'officiant_final_locked_v2';
+
+    const moduleQuizzes = {
+      m1: [
+        {
+          q: 'Which answer best explains why Christian marriage should be described as covenant rather than contract?',
+          options: ['Because it is mainly about pleasing guests', 'Because covenant involves sacred commitment before God', 'Because contracts are more biblical', 'Because covenant removes obligation'],
+          answer: 1
+        },
+        {
+          q: 'Why must Scripture shape a Christian wedding ceremony?',
+          options: ['To fill time only', 'To impress guests with difficult wording', 'To give theological grounding and spiritual weight', 'To avoid writing a real message'],
+          answer: 2
+        },
+        {
+          q: 'What is the biggest weakness of a ceremony with sentiment but no biblical substance?',
+          options: ['It may feel shallow and spiritually thin', 'It will always be too long', 'It becomes legally invalid', 'It guarantees poor attendance'],
+          answer: 0
+        }
+      ],
+      m2: [
+        {
+          q: 'Which answer best describes the officiant’s role?',
+          options: ['Main entertainer of the ceremony', 'A guide who sets tone and order with reverence', 'A silent observer', 'A guest with a script'],
+          answer: 1
+        },
+        {
+          q: 'Why does officiant character matter?',
+          options: ['Because personality is more important than preparation', 'Because credibility, calmness, and maturity shape the ceremony', 'Because guests rate appearance only', 'Because character replaces structure'],
+          answer: 1
+        },
+        {
+          q: 'What is poor officiant practice?',
+          options: ['Preparing names in advance', 'Checking the order of service', 'Making the ceremony about themselves', 'Arriving early'],
+          answer: 2
+        }
+      ],
+      m3: [
+        {
+          q: 'Which of these belongs in a properly structured Christian wedding ceremony?',
+          options: ['Declaration of intent', 'Audience debate', 'Comedy sketch', 'Interview break'],
+          answer: 0
+        },
+        {
+          q: 'What makes ceremony language feel stronger?',
+          options: ['Empty sentiment and clichés', 'Reverence, clarity, and purpose', 'More slang', 'More jokes'],
+          answer: 1
+        },
+        {
+          q: 'Why should opening remarks matter?',
+          options: ['They set tone and purpose', 'They replace the vows', 'They are only filler', 'They are less important than announcements'],
+          answer: 0
+        }
+      ],
+      m4: [
+        {
+          q: 'Which answer best reflects strong delivery?',
+          options: ['Rushing so there are no pauses', 'Calm pacing and clear speech', 'Speaking loudly at all times', 'Reading as fast as possible'],
+          answer: 1
+        },
+        {
+          q: 'What should an officiant do during an emotional pause?',
+          options: ['Make a joke', 'Rush the couple immediately', 'Remain calm and guide gently if needed', 'Skip the rest'],
+          answer: 2
+        },
+        {
+          q: 'Why is rehearsal valuable?',
+          options: ['It protects the ceremony from avoidable confusion', 'It is only for large weddings', 'It removes the need to prepare', 'It is mainly decorative'],
+          answer: 0
+        }
+      ],
+      m5: [
+        {
+          q: 'Why do legal and administrative responsibilities matter?',
+          options: ['They do not matter in ministry work', 'They support responsible and professional practice', 'They only matter for registrars', 'They can be ignored if the script is strong'],
+          answer: 1
+        },
+        {
+          q: 'What should an officiant communicate clearly to a couple?',
+          options: ['What is included, timing, and expectations', 'Only what colour to wear', 'Nothing until the day', 'Only the ring wording'],
+          answer: 0
+        },
+        {
+          q: 'Why do pastoral boundaries matter?',
+          options: ['Because discretion and maturity protect trust', 'Because boundaries weaken ministry', 'Because all couples want personal advice', 'Because confidentiality is unimportant'],
+          answer: 0
+        }
+      ],
+      m6: [
+        {
+          q: 'Why should certification require demonstrated competence?',
+          options: ['Because scrolling a page is enough', 'Because certification should reflect real understanding and readiness', 'Because payment should guarantee a pass', 'Because practical work is optional'],
+          answer: 1
+        },
+        {
+          q: 'Which best describes the practicum?',
+          options: ['A real demonstration of ceremony competence', 'An optional extra with no purpose', 'A legal registration form', 'A replacement for study'],
+          answer: 0
+        },
+        {
+          q: 'What should happen if a student has weak structure and poor delivery?',
+          options: ['Pass them anyway', 'Delay certification until competence is shown', 'Ignore it because they paid', 'Remove the practicum'],
+          answer: 1
+        }
+      ]
+    };
+
+    const finalQuestionBank = [
+      {
+        q: 'A student writes a ceremony that sounds warm but contains no Scripture, no declaration of intent, and no solemnity. What is the strongest criticism?',
+        options: ['It is only too short', 'It lacks the key structural and biblical weight expected of a Christian ceremony', 'It only needs more jokes', 'It fails only because the vows are brief'],
+        answer: 1
+      },
+      {
+        q: 'Which statement is most accurate in the UK context for this course?',
+        options: ['This course makes students legal registrars automatically', 'This course trains students for ministry-based officiant work but does not itself grant civil registrar status', 'This course replaces all church oversight requirements', 'This course makes every Christian ceremony legally binding'],
+        answer: 1
+      },
+      {
+        q: 'Why is Ephesians 5 commonly used in Christian marriage teaching?',
+        options: ['Because it removes the need for vows', 'Because it connects marriage with Christ-centred love and responsibility', 'Because it is required in all UK weddings', 'Because it has no practical meaning'],
+        answer: 1
+      },
+      {
+        q: 'A couple wants a Christian ceremony that feels warm but not rigid. What is the best response?',
+        options: ['Remove all structure', 'Keep a disciplined ceremony order while using warm and clear language', 'Avoid biblical content entirely', 'Tell them Christian ceremonies must always feel cold'],
+        answer: 1
+      },
+      {
+        q: 'What is the best reason to include Scripture in a Christian wedding ceremony?',
+        options: ['To fill time while guests settle down', 'To give theological grounding and spiritual weight', 'To avoid writing a message', 'To impress guests with difficult wording'],
+        answer: 1
+      },
+      {
+        q: 'Why should the officiant know names, timing, and order before the day?',
+        options: ['Because guests expect entertainment', 'Because preparation protects the ceremony from confusion and builds trust', 'Because memorisation makes the ceremony legal', 'Because structure replaces prayer'],
+        answer: 1
+      },
+      {
+        q: 'Which answer best explains why cheating is serious in this course?',
+        options: ['Because the student may gain a pass without developing real ministry readiness', 'Because cheating only matters at universities', 'Because cheating is acceptable if the ceremony sounds nice', 'Because this course is mostly theoretical'],
+        answer: 0
+      },
+      {
+        q: 'Which scenario shows poor officiant practice?',
+        options: ['Reviewing pronunciations in advance', 'Turning up unprepared and relying on improvisation', 'Confirming readings before the day', 'Guiding vows with calm pauses'],
+        answer: 1
+      },
+      {
+        q: 'What does the ring exchange most strongly represent in a Christian ceremony?',
+        options: ['A decorative pause', 'A symbol of covenant love and faithful commitment', 'A legal replacement for vows', 'A modern extra with no deeper meaning'],
+        answer: 1
+      },
+      {
+        q: 'Why should certification involve more than payment and page access?',
+        options: ['Because payment should automatically grant a pass', 'Because certification should reflect actual understanding and competence', 'Because testing only makes the course look serious', 'Because ministry work does not require preparation'],
+        answer: 1
+      },
+      {
+        q: 'Which answer best captures the difference between shallow and strong ceremony language?',
+        options: ['Strong language is always longer', 'Strong language carries clarity, reverence, and purpose rather than empty sentiment', 'Shallow language is better for Christian ceremonies', 'There is no meaningful difference'],
+        answer: 1
+      },
+      {
+        q: 'What should an officiant do if a couple becomes emotional during the vows?',
+        options: ['Rush them immediately', 'Remain calm, allow the moment to breathe, and guide gently when needed', 'Make a joke', 'Skip the vows'],
+        answer: 1
+      },
+      {
+        q: 'Why do pastoral boundaries matter in officiant work?',
+        options: ['Because discretion and maturity protect trust', 'Because boundaries weaken compassion', 'Because every couple wants private advice', 'Because confidentiality is unimportant'],
+        answer: 0
+      },
+      {
+        q: 'Which answer best describes the declaration of intent?',
+        options: ['A public clarification of willingness to enter marriage', 'A replacement for vows', 'A legal shortcut', 'An optional audience moment'],
+        answer: 0
+      },
+      {
+        q: 'Why should an officiant avoid making the ceremony about themselves?',
+        options: ['Because the role is to serve the couple and the sacred moment rather than self-display', 'Because guests dislike confident speakers', 'Because personality has no place in weddings', 'Because improvisation is always wrong'],
+        answer: 0
+      },
+      {
+        q: 'What is the strongest reason module tests should come before the final test?',
+        options: ['To make the course longer without purpose', 'To ensure students understand each section before moving on', 'To stop anyone ever passing', 'To replace the course content'],
+        answer: 1
+      }
+    ];
+
+    let finalQuestions = [];
+
+    function shuffle(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function getProgress() {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    }
+
+    function setProgress(progress) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    }
+
+    function getFinalAttempts() {
+      const val = localStorage.getItem(FINAL_ATTEMPTS_KEY);
+      return val ? Number(val) : 2;
+    }
+
+    function setFinalAttempts(num) {
+      localStorage.setItem(FINAL_ATTEMPTS_KEY, String(num));
+    }
+
+    function setFinalLocked() {
+      localStorage.setItem(FINAL_LOCKED_KEY, 'true');
+    }
+
+    function isFinalLocked() {
+      return localStorage.getItem(FINAL_LOCKED_KEY) === 'true';
+    }
+
+    function renderModuleQuiz(moduleId) {
+      const target = document.getElementById('quiz-' + moduleId);
+      const questions = moduleQuizzes[moduleId];
+      target.innerHTML = questions.map((item, index) => {
+        const options = item.options.map((opt, i) => `
+          <label class="option">
+            <input type="radio" name="${moduleId}-q${index}" value="${i}"> ${opt}
+          </label>
+        `).join('');
+
+        return `
+          <div class="question">
+            <div class="question-title">${index + 1}. ${item.q}</div>
+            ${options}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function gradeModule(moduleId) {
+      const questions = moduleQuizzes[moduleId];
+      const result = document.getElementById('result-' + moduleId);
+      const status = document.getElementById('status-' + moduleId);
+      let score = 0;
+
+      for (let i = 0; i < questions.length; i++) {
+        const selected = document.querySelector(`input[name="${moduleId}-q${i}"]:checked`);
+        if (!selected) {
+          result.className = 'result-box result-fail';
+          result.style.display = 'block';
+          result.textContent = 'Please answer all questions before submitting this module test.';
+          return;
+        }
+        if (Number(selected.value) === questions[i].answer) {
+          score++;
+        }
+      }
+
+      const percent = Math.round((score / questions.length) * 100);
+      const progress = getProgress();
+
+      if (percent >= 80) {
+        progress[moduleId] = true;
+        setProgress(progress);
+        result.className = 'result-box result-pass';
+        result.style.display = 'block';
+        result.textContent = `Passed: You scored ${score} out of ${questions.length} (${percent}%).`;
+        status.textContent = 'Passed';
+        status.className = 'module-status pass';
+      } else {
+        progress[moduleId] = false;
+        setProgress(progress);
+        result.className = 'result-box result-fail';
+        result.style.display = 'block';
+        result.textContent = `Not passed yet: You scored ${score} out of ${questions.length} (${percent}%). Review the module and try again.`;
+        status.textContent = 'Not passed yet';
+        status.className = 'module-status';
+      }
+
+      updateFinalLock();
+    }
+
+    function renderFinalQuestions() {
+      finalQuestions = shuffle(finalQuestionBank).slice(0, 12);
+      const form = document.getElementById('final-test');
+      form.innerHTML = finalQuestions.map((item, index) => {
+        const options = item.options.map((opt, i) => `
+          <label class="option">
+            <input type="radio" name="final-q${index}" value="${i}"> ${opt}
+          </label>
+        `).join('');
+        return `
+          <div class="question">
+            <div class="question-title">${index + 1}. ${item.q}</div>
+            ${options}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateFinalLock() {
+      const progress = getProgress();
+      const allPassed = ['m1','m2','m3','m4','m5','m6'].every((key) => progress[key] === true);
+      const locked = isFinalLocked();
+      const attempts = getFinalAttempts();
+
+      const lockMsg = document.getElementById('final-lock-message');
+      const liveArea = document.getElementById('final-live-area');
+      const attemptInfo = document.getElementById('attempt-info');
+      const submitBtn = document.getElementById('final-submit-btn');
+      const finalResult = document.getElementById('final-result');
+
+      if (locked || attempts <= 0) {
+        lockMsg.style.display = 'block';
+        lockMsg.innerHTML = '<h3>Final Test Locked</h3><p>You have used both final test attempts. No further attempts are available.</p>';
+        liveArea.style.display = 'none';
+        return;
+      }
+
+      if (allPassed) {
+        lockMsg.style.display = 'none';
+        liveArea.style.display = 'block';
+        attemptInfo.textContent = `You have ${attempts} final test attempt${attempts === 1 ? '' : 's'} remaining.`;
+        submitBtn.disabled = false;
+        submitBtn.className = 'btn btn-primary';
+        if (!finalQuestions.length) renderFinalQuestions();
+        finalResult.style.display = 'none';
+      } else {
+        lockMsg.style.display = 'block';
+        liveArea.style.display = 'none';
+      }
+    }
+
+    function gradeFinalTest() {
+      const attempts = getFinalAttempts();
+      const result = document.getElementById('final-result');
+
+      if (attempts <= 0 || isFinalLocked()) {
+        updateFinalLock();
+        return;
+      }
+
+      let score = 0;
+      for (let i = 0; i < finalQuestions.length; i++) {
+        const selected = document.querySelector(`input[name="final-q${i}"]:checked`);
+        if (!selected) {
+          result.className = 'result-box result-fail';
+          result.style.display = 'block';
+          result.textContent = 'Please answer all 12 final test questions before submitting.';
+          return;
+        }
+        if (Number(selected.value) === finalQuestions[i].answer) {
+          score++;
+        }
+      }
+
+      const percent = Math.round((score / finalQuestions.length) * 100);
+      const newAttempts = attempts - 1;
+      setFinalAttempts(newAttempts);
+
+      if (percent >= 80) {
+        result.className = 'result-box result-pass';
+        result.style.display = 'block';
+        result.textContent = `Pass: You scored ${score} out of ${finalQuestions.length} (${percent}%). You have passed the final certification test.`;
+      } else {
+        result.className = 'result-box result-fail';
+        result.style.display = 'block';
+        if (newAttempts > 0) {
+          result.textContent = `Not passed yet: You scored ${score} out of ${finalQuestions.length} (${percent}%). You have ${newAttempts} final attempt remaining.`;
+          renderFinalQuestions();
+        } else {
+          setFinalLocked();
+          result.textContent = `Not passed: You scored ${score} out of ${finalQuestions.length} (${percent}%). You have now used both final attempts.`;
+        }
+      }
+
+      updateFinalLock();
+    }
+
+    function boot() {
+      ['m1','m2','m3','m4','m5','m6'].forEach((id) => {
+        renderModuleQuiz(id);
+      });
+
+      const progress = getProgress();
+      ['m1','m2','m3','m4','m5','m6'].forEach((id) => {
+        if (progress[id] === true) {
+          const status = document.getElementById('status-' + id);
+          status.textContent = 'Passed';
+          status.className = 'module-status pass';
+        }
+      });
+
+      updateFinalLock();
+    }
+
+    boot();
+  </script>
+</body>
+</html>
