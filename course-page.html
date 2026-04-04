@@ -26,7 +26,7 @@
       color: var(--text);
     }
     .wrap {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 32px 20px 60px;
     }
@@ -93,8 +93,12 @@
       font-size: 22px;
       margin: 0 0 10px;
     }
+    h4 {
+      font-size: 18px;
+      margin: 0 0 8px;
+    }
     p {
-      line-height: 1.8;
+      line-height: 1.85;
       margin: 0 0 12px;
       color: var(--muted);
     }
@@ -219,6 +223,15 @@
       font-size: 14px;
       margin-top: 26px;
     }
+    .study-lock {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      background: #fff7ed;
+      border: 1px solid #fdba74;
+      color: #7c2d12;
+      font-weight: 700;
+    }
     @media (max-width: 640px) {
       h1 { font-size: 34px; }
       h2 { font-size: 26px; }
@@ -240,12 +253,12 @@
       <div class="eyebrow">Course Access</div>
       <h1>Christian Wedding Officiant Certification Course</h1>
       <p>
-        This is the course page students are buying access to. It contains structured teaching,
-        biblical foundations, practical officiant training, module tests, and a locked final certification test.
+        This is the full course page students are buying access to. It contains real study material,
+        biblical foundations, practical ceremony guidance, module tests, and a locked final certification test.
       </p>
       <div class="grid grid-3" style="margin-top: 22px;">
-        <div class="pill"><strong>6 Modules</strong>Structured study path</div>
-        <div class="pill"><strong>Module Tests</strong>Must be passed first</div>
+        <div class="pill"><strong>6 Modules</strong>Substantial study content</div>
+        <div class="pill"><strong>Module Tests</strong>Pass each one first</div>
         <div class="pill"><strong>Final Test</strong>2 attempts only</div>
       </div>
     </section>
@@ -253,9 +266,9 @@
     <section class="card">
       <h2>Orientation and Requirements</h2>
       <p>
-        Welcome to the Christian Wedding Officiant Certification Program. This course is built to train students
-        in biblical foundations, ceremony structure, delivery, professionalism, and final assessment. It is designed
-        for those who want to officiate weddings seriously and professionally rather than casually.
+        Welcome to the Christian Wedding Officiant Certification Program. This course is designed to train students in biblical foundations,
+        ceremony structure, script writing, spoken delivery, pastoral conduct, and the professional responsibilities connected to officiating.
+        It is intended for people who want serious preparation rather than a shallow summary page.
       </p>
       <div class="grid grid-2" style="margin-top: 14px;">
         <div class="module">
@@ -265,14 +278,14 @@
             <li>Pass all six module tests at 80 percent or above</li>
             <li>Unlock the final certification test only after module completion</li>
             <li>Pass the final test within two attempts</li>
-            <li>Complete the course honestly</li>
+            <li>Complete the course honestly and without cheating</li>
           </ul>
         </div>
         <div class="module">
-          <h3>Integrity Rule</h3>
+          <h3>Purpose of this course</h3>
           <p>
-            Cheating is not acceptable in this course. Sharing answers, skipping straight to tests, or pretending to understand
-            material that has not been studied undermines the certification and the integrity of ministry work.
+            This course exists to equip Christian wedding officiants to serve with biblical understanding, ceremony competence,
+            reverence, and pastoral maturity. It is not simply about reading words at the front of a room. It is about guiding a sacred moment with seriousness and care.
           </p>
         </div>
       </div>
@@ -282,13 +295,24 @@
       <summary>Module 1: Biblical Foundations of Marriage</summary>
       <div class="lesson-block">
         <div class="meta">Required Scripture: Genesis 2:18–24 · Matthew 19:4–6 · Ephesians 5:21–33 · 1 Corinthians 13:4–8</div>
+        <h4>What marriage is in Scripture</h4>
         <p>
-          Before a person can officiate a Christian wedding properly, they must understand what marriage is according to Scripture.
-          Christian marriage is not merely a social event or romantic display. It is a covenant before God. The officiant must know this,
-          because the tone, wording, and seriousness of the ceremony flow directly from that truth.
+          Christian marriage is not merely a social arrangement, a personal experiment, or a public celebration. In Scripture it is presented as a covenant before God.
+          That means it carries sacred commitment, faithfulness, permanence, and moral seriousness. An officiant who does not understand this truth will always struggle to lead a ceremony with proper weight.
         </p>
-        <div class="quote">Marriage in Scripture is presented as covenant, unity, faithfulness, and holy commitment. An officiant who does not understand this will lead a shallow ceremony.</div>
-        <div class="module assessment">
+        <p>
+          Genesis 2:24 teaches that a man leaves his father and mother and is joined to his wife, and the two become one flesh. This language shows unity, permanence, and a God-given order to marriage.
+          Matthew 19 reinforces that what God has joined together should not be treated casually or lightly.
+        </p>
+        <h4>Why this matters to the officiant</h4>
+        <p>
+          The officiant does not create marriage by personal authority, but stands in the ceremony as someone publicly recognising and guiding a covenant commitment before God and witnesses.
+          If the officiant treats the ceremony like a casual event, the room will feel it. If the officiant understands the spiritual seriousness of marriage, that depth will shape the tone, words, and dignity of the service.
+        </p>
+        <div class="quote">Marriage in Scripture is covenant, unity, faithfulness, and holy commitment. A strong officiant must understand that before leading others into it.</div>
+        <div class="study-lock">Read the study content above before unlocking the test for this module.</div>
+        <button type="button" class="btn btn-secondary" onclick="unlockModule('m1')">I have completed Module 1 study — unlock test</button>
+        <div id="test-wrap-m1" class="module assessment" style="display:none; margin-top:16px;">
           <h3>Module 1 Test</h3>
           <div id="quiz-m1"></div>
           <button type="button" class="btn btn-primary" onclick="gradeModule('m1')">Submit Module 1 Test</button>
@@ -302,11 +326,23 @@
       <summary>Module 2: The Calling and Role of the Christian Wedding Officiant</summary>
       <div class="lesson-block">
         <div class="meta">Required Scripture: 1 Peter 5:2–3 · Colossians 3:17</div>
+        <h4>The officiant as guide, not performer</h4>
         <p>
-          A Christian wedding officiant is not merely a host or a public speaker. The officiant is a guide, a stabilising presence,
-          and a visible representative of Christian reverence during one of the most important moments in the couple’s life.
+          A Christian wedding officiant is not merely a host, entertainer, or public reader. The officiant is a guide, a steadying presence, and a visible leader during one of the most meaningful moments in the couple’s life.
+          This means the role carries responsibility, restraint, and presence.
         </p>
-        <div class="module assessment">
+        <p>
+          The officiant should never make the ceremony about themselves. Their duty is to honour God, serve the couple, guide the order of service, and help the congregation enter the moment with reverence.
+          Character matters as much as competence. Calmness, reliability, preparation, and humility all shape the ceremony.
+        </p>
+        <h4>Preparation and conduct</h4>
+        <p>
+          Strong officiants prepare names, wording, timing, readings, and ceremony order well in advance. They arrive prepared. They know when to speak, when to pause, and when to guide.
+          This professionalism protects the couple from avoidable stress and gives the ceremony visible stability.
+        </p>
+        <div class="study-lock">Read the study content above before unlocking the test for this module.</div>
+        <button type="button" class="btn btn-secondary" onclick="unlockModule('m2')">I have completed Module 2 study — unlock test</button>
+        <div id="test-wrap-m2" class="module assessment" style="display:none; margin-top:16px;">
           <h3>Module 2 Test</h3>
           <div id="quiz-m2"></div>
           <button type="button" class="btn btn-primary" onclick="gradeModule('m2')">Submit Module 2 Test</button>
@@ -320,11 +356,20 @@
       <summary>Module 3: Ceremony Structure and Script Writing</summary>
       <div class="lesson-block">
         <div class="meta">Required Scripture: Psalm 127:1 · Romans 12:10</div>
+        <h4>Why structure matters</h4>
         <p>
-          A good Christian wedding ceremony should feel ordered, reverent, and purposeful. Students learn how to structure a full ceremony,
-          including welcome, exhortation, declaration of intent, vows, ring exchange, pronouncement, and blessing.
+          A Christian wedding ceremony should feel ordered, coherent, reverent, and purposeful. A ceremony that is warm but disorganised quickly loses authority.
+          Students must understand how the major sections work together: welcome, exhortation, declaration of intent, vows, ring exchange, pronouncement, and blessing.
         </p>
-        <div class="module assessment">
+        <h4>Writing words with weight</h4>
+        <p>
+          Ceremony wording should not feel flimsy, sentimental, or improvised. Strong officiant language combines warmth with discipline. It should sound Christian, respectful, and memorable without becoming theatrical.
+          The opening should establish tone. The declaration of intent should clarify willingness. The vows should sound covenantal. The ring exchange should carry symbolic meaning. The pronouncement should bring the ceremony to a dignified close.
+        </p>
+        <div class="quote">The difference between cheap-feeling officiant work and premium officiant work often comes down to script quality, tone, and structure.</div>
+        <div class="study-lock">Read the study content above before unlocking the test for this module.</div>
+        <button type="button" class="btn btn-secondary" onclick="unlockModule('m3')">I have completed Module 3 study — unlock test</button>
+        <div id="test-wrap-m3" class="module assessment" style="display:none; margin-top:16px;">
           <h3>Module 3 Test</h3>
           <div id="quiz-m3"></div>
           <button type="button" class="btn btn-primary" onclick="gradeModule('m3')">Submit Module 3 Test</button>
@@ -338,11 +383,16 @@
       <summary>Module 4: Delivering the Ceremony with Confidence</summary>
       <div class="lesson-block">
         <div class="meta">Required Scripture: Ecclesiastes 3:7 · Proverbs 15:23</div>
+        <h4>Presence, pace, and spoken confidence</h4>
         <p>
-          This module focuses on spoken delivery. Confidence is not loudness. Confidence is steadiness, controlled pace, clear articulation,
-          and the ability to lead a room without panic.
+          Confidence is not loudness. It is steadiness. A good officiant speaks clearly, uses measured pacing, allows important moments to breathe, and keeps the room calm. Delivery should never feel rushed or panicked.
         </p>
-        <div class="module assessment">
+        <p>
+          Students must practise reading their scripts aloud, because effective ceremony leadership depends on spoken delivery as much as written preparation. Rehearsal helps with timing, posture, eye contact, ring exchange cues, and handling emotional pauses.
+        </p>
+        <div class="study-lock">Read the study content above before unlocking the test for this module.</div>
+        <button type="button" class="btn btn-secondary" onclick="unlockModule('m4')">I have completed Module 4 study — unlock test</button>
+        <div id="test-wrap-m4" class="module assessment" style="display:none; margin-top:16px;">
           <h3>Module 4 Test</h3>
           <div id="quiz-m4"></div>
           <button type="button" class="btn btn-primary" onclick="gradeModule('m4')">Submit Module 4 Test</button>
@@ -356,11 +406,16 @@
       <summary>Module 5: Legal, Administrative, and Pastoral Responsibilities</summary>
       <div class="lesson-block">
         <div class="meta">Required Scripture: Romans 13:1 · 1 Corinthians 14:40</div>
+        <h4>Professional responsibility in ministry work</h4>
         <p>
-          The officiant must not only sound good. They must also behave professionally. This includes understanding local legal expectations,
-          communicating clearly with couples, preparing the order of service, and handling the day responsibly.
+          An officiant must not only sound competent. They must also act responsibly. This includes understanding local legal limits, communicating clearly with couples, preparing the order of service, setting expectations, and conducting themselves with pastoral maturity.
         </p>
-        <div class="module assessment">
+        <p>
+          Ministry and professionalism should not be separated. Administrative readiness, discretion, and boundaries all matter because trust matters. Couples should feel that the officiant is clear, steady, and dependable from the first conversation to the end of the ceremony.
+        </p>
+        <div class="study-lock">Read the study content above before unlocking the test for this module.</div>
+        <button type="button" class="btn btn-secondary" onclick="unlockModule('m5')">I have completed Module 5 study — unlock test</button>
+        <div id="test-wrap-m5" class="module assessment" style="display:none; margin-top:16px;">
           <h3>Module 5 Test</h3>
           <div id="quiz-m5"></div>
           <button type="button" class="btn btn-primary" onclick="gradeModule('m5')">Submit Module 5 Test</button>
@@ -374,11 +429,17 @@
       <summary>Module 6: Final Assessment, Practicum, and Certification</summary>
       <div class="lesson-block">
         <div class="meta">Required Scripture: 2 Timothy 2:15 · James 1:22</div>
+        <h4>Certification must mean something</h4>
         <p>
-          Certification should not be awarded because the student scrolled a page. It should be awarded because the student demonstrated
-          biblical understanding, strong ceremony structure, competent wording, and spoken delivery.
+          Certification should not be awarded because someone paid, scrolled, or guessed. It should reflect actual understanding, ceremony structure, and practical readiness.
+          The practicum matters because ministry credibility matters. A person should only be certified when they can demonstrate both understanding and competence.
         </p>
-        <div class="module assessment">
+        <p>
+          This module prepares students for the final locked test and the wider expectation that ministry training must be taken seriously. The certification has value only if the process has integrity.
+        </p>
+        <div class="study-lock">Read the study content above before unlocking the test for this module.</div>
+        <button type="button" class="btn btn-secondary" onclick="unlockModule('m6')">I have completed Module 6 study — unlock test</button>
+        <div id="test-wrap-m6" class="module assessment" style="display:none; margin-top:16px;">
           <h3>Module 6 Test</h3>
           <div id="quiz-m6"></div>
           <button type="button" class="btn btn-primary" onclick="gradeModule('m6')">Submit Module 6 Test</button>
@@ -391,15 +452,14 @@
     <section class="card">
       <h2>Sample Christian Ceremony Script</h2>
       <div class="quote">
-        Dearly beloved, we are gathered here today in the sight of God and before these witnesses to join this man and this woman in holy matrimony.
+        Dearly beloved, we are gathered here today in the sight of God and before these witnesses to join this man and this woman in holy matrimony. Marriage is a sacred covenant established by God, not to be entered into lightly, but reverently, soberly, and in the fear of the Lord.
       </div>
       <p>
-        Today is a day of joy, but it is also a day of solemn commitment. Christian marriage is built on covenant, faithfulness, forgiveness,
-        sacrifice, and love under God. Husband and wife are called to walk together in unity, honour one another, and build a home shaped by grace and truth.
+        Today is a day of joy, but it is also a day of solemn commitment. Christian marriage is built on covenant, faithfulness, forgiveness, sacrifice, and love under God. Husband and wife are called to walk together in unity, honour one another, and build a home shaped by grace and truth.
       </p>
       <p>
         By the vows you have made, the promises you have spoken, and the covenant entered before God and these witnesses,
-        it is my honour to pronounce you husband and wife.
+        it is my honour to pronounce you husband and wife. What God has joined together, let no one separate.
       </p>
     </section>
 
@@ -442,7 +502,7 @@
           <div class="meta">Core Offer</div>
           <h3 style="font-size: 38px; margin-bottom: 6px;">£199</h3>
           <p>
-            Full Christian Wedding Officiant Certification Program including structured modules, course content,
+            Full Christian Wedding Officiant Certification Program including structured modules, substantial study content,
             module tests, and a locked final certification test.
           </p>
           <a class="btn btn-primary" href="https://buy.stripe.com/6oU9ATfLv0JU5Gy11J7Zu00" target="_blank" rel="noreferrer">Buy Certification Access</a>
@@ -462,14 +522,15 @@
     </section>
 
     <div class="footer-note">
-      Course page live. Module tests gate the final test. Final test gives two attempts only.
+      Course page live. Students must study, unlock each module test, pass all module tests, then unlock the final test.
     </div>
   </div>
 
   <script>
-    const STORAGE_KEY = 'officiant_course_progress_v2';
-    const FINAL_ATTEMPTS_KEY = 'officiant_final_attempts_v2';
-    const FINAL_LOCKED_KEY = 'officiant_final_locked_v2';
+    const STORAGE_KEY = 'officiant_course_progress_v3';
+    const UNLOCK_KEY = 'officiant_course_unlocks_v3';
+    const FINAL_ATTEMPTS_KEY = 'officiant_final_attempts_v3';
+    const FINAL_LOCKED_KEY = 'officiant_final_locked_v3';
 
     const moduleQuizzes = {
       m1: [
@@ -678,6 +739,21 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
     }
 
+    function getUnlocks() {
+      return JSON.parse(localStorage.getItem(UNLOCK_KEY) || '{}');
+    }
+
+    function setUnlocks(unlocks) {
+      localStorage.setItem(UNLOCK_KEY, JSON.stringify(unlocks));
+    }
+
+    function unlockModule(moduleId) {
+      const unlocks = getUnlocks();
+      unlocks[moduleId] = true;
+      setUnlocks(unlocks);
+      document.getElementById('test-wrap-' + moduleId).style.display = 'block';
+    }
+
     function getFinalAttempts() {
       const val = localStorage.getItem(FINAL_ATTEMPTS_KEY);
       return val ? Number(val) : 2;
@@ -860,11 +936,15 @@
       });
 
       const progress = getProgress();
+      const unlocks = getUnlocks();
       ['m1','m2','m3','m4','m5','m6'].forEach((id) => {
         if (progress[id] === true) {
           const status = document.getElementById('status-' + id);
           status.textContent = 'Passed';
           status.className = 'module-status pass';
+        }
+        if (unlocks[id] === true) {
+          document.getElementById('test-wrap-' + id).style.display = 'block';
         }
       });
 
